@@ -2,11 +2,14 @@ package com.example.classmethodv2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Personnage.MegaStats {
     private TextView infoPerso, infoPersoDef, infoPersoMage;
+    private Personnage persoDef, perso1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Personnage perso1 = new Personnage("Luna", 100, 87, 78);
-        Personnage persoDef = new Personnage("Ruby");
+        perso1 = new Personnage("Luna", 100, 87, 78);
+        persoDef = new Personnage("Ruby");
         Magicien persoMage = new Magicien ("Nova", 100, 10, 78);
 
         persoDef.perteDePV(25);
@@ -44,37 +47,52 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-       /*
-       String stats = "Nom: "+perso1.nom+"\n"+
 
-                "Pt de vie : " +perso1.vita+"\n"+
-                "Pt de force: "+perso1.force+ "\n"+
-                "Pt de mana: "+perso1.mana;
 
-        */
-
-        String statsDefaut = "Nom: "+persoDef.getNom()+"\n"+
+        augmenteForce(555);
+        augmenteMana(555);
+        augmenteVie(555);
+        changeNom("Super "+persoDef.getNom());
+        changeCouleur(Color.MAGENTA);
+        String statsDefaut = "Nom: " + persoDef.getNom() + "\n"+
                 "Pt de vie : " +persoDef.getVita()+"\n"+
                 "Pt de force: "+persoDef.getForce()+ "\n"+
                 "Pt de mana: "+persoDef.getMana();
 
-
-
-
-        /*
-
-        String statsDefaut = "Nom: "+persoDef.nom+"\n"+
-                "Pt de vie : " +persoDef.vita+"\n"+
-                "Pt de force: "+persoDef.force+ "\n"+
-                "Pt de mana: "+persoDef.mana;
-
-        */
-
-
         infoPerso.setText(stats);
         infoPersoDef.setText(statsDefaut);
         infoPersoMage.setText(statsMage);
+
     }
 
 
+    @Override
+    public void augmenteForce(int f) {
+        persoDef.setForce(f);
+
+    }
+
+    @Override
+    public void augmenteVie(int v) {
+        persoDef.setVita(v);
+
+    }
+
+    @Override
+    public void augmenteMana(int m) {
+        persoDef.setMana(m);
+
+    }
+
+    @Override
+    public void changeNom(String s) {
+        persoDef.setNom(s);
+
+    }
+
+    @Override
+    public void changeCouleur(int c) {
+        infoPersoDef.setTextColor(c);
+
+    }
 }

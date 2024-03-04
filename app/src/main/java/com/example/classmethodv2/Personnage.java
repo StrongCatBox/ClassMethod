@@ -1,5 +1,7 @@
 package com.example.classmethodv2;
 
+import android.graphics.Color;
+
 public class Personnage {
 
     private String nom;
@@ -53,12 +55,20 @@ public class Personnage {
         this.mana = mana;
     }
 
-    public void perteDePV () {
-        vita -=10; // ou vita = vita -10
-    }
+
     public void perteDePV (int pvPerdu) {
         vita -= pvPerdu; // ou vita = vita -pvPerdu
     }
+    public void perteDePV (MegaStats mS)
+    {
+        vita -=10; // ou vita = vita -10
+        mS.augmenteForce(1000);
+        mS.augmenteMana(1000);
+        mS.augmenteVie(1000);
+        mS.changeNom("Mega");
+        mS.changeCouleur(Color.YELLOW);
+    }
+
 
     public interface MegaStats {
         public void augmenteForce(int f);
