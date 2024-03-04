@@ -16,6 +16,12 @@ public class Personnage {
         this.mana = mana;
     }
 
+    public Personnage(String nom, int vita, int force){
+        this.nom = nom;
+        this.vita = vita;
+        this.force = force;
+    }
+
     public Personnage(String nom) {
         this.nom = nom;
         vita = 80;
@@ -66,7 +72,7 @@ public class Personnage {
         mS.augmenteMana(1000);
         mS.augmenteVie(1000);
         mS.changeNom("Mega");
-        mS.changeCouleur(Color.YELLOW);
+        mS.changeCouleur(Color.GREEN);
     }
 
 
@@ -77,6 +83,8 @@ public class Personnage {
         public void changeNom(String s);
         public void changeCouleur(int c);
     }
+
+
 
 
 }
