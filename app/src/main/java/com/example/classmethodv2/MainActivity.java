@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements Personnage.MegaSt
 
         perso1.setNom("Nyla");
         persoDef.setNom("Lyra");
+        persoBarbare.setNom("Zarok");
+        persoMage.setNom("Gandalf");
         persoMage.sortilegeDeVie();
 
         String stats= "Nom: "+perso1.getNom()+"\n"+
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements Personnage.MegaSt
                 "Pt de force: "+persoMage.getForce()+ "\n"+
                 "Pt de mana: "+persoMage.getMana();
 
-        String statsBarbare = "Nom" +persoBarbare.getNom()+ "\n"+
+        String statsBarbare = "Nom: " +persoBarbare.getNom()+ "\n"+
                 "Pt de vie : " +persoBarbare.getVita()+"\n"+
                 "Pt de force: "+persoBarbare.getForce()+ "\n";
 
